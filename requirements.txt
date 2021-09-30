@@ -1,0 +1,7 @@
+fastapi==0.68.1
+pytest==5.4.1
+psycopg2-binary==2.8
+uvicorn==0.15.0
+pydantic[dotenv]==1.8.2
+tortoise-orm[asyncpg]==0.17.7
+aerich==0.5.8

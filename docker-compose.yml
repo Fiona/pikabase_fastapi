@@ -1,0 +1,25 @@
+version: "3.4"
+services:
+  db:
+    image: postgres:11-alpine
+    environment:
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - "dbdata:/var/lib/postgresql/data"
+    ports:
+      - "5432:5432"
+  app:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      target: dev
+    env_file:
+      - ./.env
+    depends_on:
+      - db
+    volumes:
+      - ./:/app
+    ports:
+      - "8000:8000"
+volumes:
+  dbdata:
